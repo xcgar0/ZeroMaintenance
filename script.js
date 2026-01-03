@@ -202,7 +202,7 @@ if (quoteForm) {
             // Send email to business owner
             await emailjs.send(
                 "service_20hi9bm", // Your EmailJS service ID
-                "YOUR_TEMPLATE_ID", // Replace with your EmailJS template ID
+                "template_vd34szo", // Business notification template
                 {
                     from_name: data.name,
                     from_email: data.email,
@@ -220,7 +220,7 @@ if (quoteForm) {
             // Send confirmation email to customer
             await emailjs.send(
                 "service_20hi9bm", // Your EmailJS service ID
-                "CUSTOMER_TEMPLATE_ID", // Replace with your customer confirmation template ID
+                "template_gssk08o", // Customer confirmation template
                 {
                     to_name: data.name,
                     to_email: data.email,
