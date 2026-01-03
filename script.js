@@ -161,7 +161,7 @@ const modalClose = document.querySelector('.modal-close');
 
 // Initialize EmailJS (You'll need to sign up at emailjs.com and get these values)
 (function() {
-    emailjs.init("YOUR_PUBLIC_KEY"); // Replace with your EmailJS public key
+    emailjs.init("e5LaHdwANoDHyRsvs"); // Your EmailJS public key
 })();
 
 if (quoteForm) {
@@ -201,7 +201,7 @@ if (quoteForm) {
         try {
             // Send email to business owner
             await emailjs.send(
-                "YOUR_SERVICE_ID", // Replace with your EmailJS service ID
+                "service_20hi9bm", // Your EmailJS service ID
                 "YOUR_TEMPLATE_ID", // Replace with your EmailJS template ID
                 {
                     from_name: data.name,
@@ -212,20 +212,20 @@ if (quoteForm) {
                     description: data.description,
                     preferred_date: data.preferredDate || 'Not specified',
                     additional_info: data.additionalInfo || 'None',
-                    to_email: "your-email@domain.com", // Replace with your email
+                    to_email: "contact.zeromaintenance@gmail.com", // Your business email
                     subject: `New Quote Request from ${data.name}`
                 }
             );
             
             // Send confirmation email to customer
             await emailjs.send(
-                "YOUR_SERVICE_ID", // Replace with your EmailJS service ID
+                "service_20hi9bm", // Your EmailJS service ID
                 "CUSTOMER_TEMPLATE_ID", // Replace with your customer confirmation template ID
                 {
                     to_name: data.name,
                     to_email: data.email,
                     service_type: data.serviceType,
-                    reply_to: "your-email@domain.com" // Replace with your email
+                    reply_to: "contact.zeromaintenance@gmail.com" // Your business email
                 }
             );
             
