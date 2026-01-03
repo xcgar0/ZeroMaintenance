@@ -1,13 +1,24 @@
 # EmailJS Setup Guide for ZeroMaintenance
 
+## ✅ CURRENT STATUS: PARTIALLY COMPLETE
+
+### ✅ COMPLETED:
+- **Public Key:** `e5LaHdwANoDHyRsvs` ✅
+- **Service ID:** `service_20hi9bm` ✅
+- **Email Address:** `contact.zeromaintenance@gmail.com` ✅
+
+### 🔄 NEXT: Create Email Templates
+
+---
+
 ## Step-by-Step EmailJS Configuration
 
-### Step 1: Sign Up for EmailJS
+### Step 1: Sign Up for EmailJS ✅
 1. Go to [emailjs.com](https://www.emailjs.com/)
 2. Click "Sign Up" (free account)
 3. Verify your email
 
-### Step 2: Set Up Email Service
+### Step 2: Set Up Email Service ✅
 1. In EmailJS dashboard, go to **"Email Services"**
 2. Click **"Add New Service"**
 3. Choose **"Gmail"** (or your preferred email provider)
@@ -15,9 +26,9 @@
    - **Service Name:** `ZeroMaintenance Gmail`
    - **Email:** `contact.zeromaintenance@gmail.com`
    - Click **"Connect Account"**
-5. **Service ID:** Copy this (looks like `service_xxxxxx`)
+5. **Service ID:** `service_20hi9bm` ✅
 
-### Step 3: Create Email Templates
+### Step 3: Create Email Templates 🔄 (DO THIS NOW)
 
 #### Template 1: Business Notification (for you)
 1. Go to **"Email Templates"** → **"Create New Template"**
@@ -65,34 +76,13 @@ contact.zeromaintenance@gmail.com
 ```
 5. **Template ID:** Copy this (looks like `template_yyyyyy`)
 
-### Step 4: Get Your Public Key
-1. In EmailJS dashboard, go to **"Account"**
-2. Copy your **"Public Key"** (looks like `xxxxxxxxxxxxxx`)
+### Step 4: Send Template IDs 🔄
+Once you create both templates, send me:
+- **Business Template ID:** `template_xxxxxx`
+- **Customer Template ID:** `template_yyyyyy`
 
-### Step 5: Update script.js
-
-Replace these values in your `script.js` file:
-
-```javascript
-// Line ~164: Replace YOUR_PUBLIC_KEY
-emailjs.init("YOUR_ACTUAL_PUBLIC_KEY_HERE");
-
-// Line ~204: Replace YOUR_SERVICE_ID
-await emailjs.send(
-    "YOUR_ACTUAL_SERVICE_ID_HERE", // service_xxxxxx
-    "BUSINESS_TEMPLATE_ID_HERE", // template_xxxxxx
-
-// Line ~222: Replace YOUR_SERVICE_ID again
-await emailjs.send(
-    "YOUR_ACTUAL_SERVICE_ID_HERE", // service_xxxxxx
-    "CUSTOMER_TEMPLATE_ID_HERE", // template_yyyyyy
-
-// Line ~209: Replace your email
-to_email: "contact.zeromaintenance@gmail.com",
-
-// Line ~225: Replace your email
-reply_to: "contact.zeromaintenance@gmail.com"
-```
+### Step 5: Final Configuration ✅ (I'll do this)
+I'll update `script.js` with your template IDs.
 
 ## Testing EmailJS
 
@@ -112,16 +102,7 @@ reply_to: "contact.zeromaintenance@gmail.com"
 - 6,000 emails/year
 - Perfect for starting out!
 
-## Upgrade Path
-When you need more emails, EmailJS paid plans start at $4.99/month for 5,000 emails.
-
 ---
 
-**Ready to get your EmailJS keys?** Follow the steps above and send me your:
-- Public Key
-- Service ID
-- Business Template ID
-- Customer Template ID
-
-Then I'll update your `script.js` file! 🚀</content>
+**🎯 YOU'RE ALMOST DONE!** Create the two email templates above and send me the Template IDs! 🚀</content>
 <parameter name="filePath">c:\Projects\zeromaintenence\emailjs-setup.md
