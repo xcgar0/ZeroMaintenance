@@ -243,6 +243,81 @@ if (quoteForm) {
     });
 }
 
+// Contact form submission handler
+const contactForm = document.getElementById('contactForm');
+
+if (contactForm) {
+    contactForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        // Get form data
+        const formData = new FormData(contactForm);
+        const data = Object.fromEntries(formData);
+        
+        // Basic validation
+        if (!data.contactName || !data.contactEmail || !data.contactSubject || !data.contactMessage) {
+            showNotification('Please fill in all required fields.', 'error');
+            return;
+        }
+        
+        // Email validation
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(data.contactEmail)) {
+            showNotification('Please enter a valid email address.', 'error');
+            return;
+        }
+        
+        // Show loading state
+        const submitBtn = contactForm.querySelector('button[type="submit"]');
+        const originalText = submitBtn.textContent;
+        submitBtn.textContent = 'Sending...';
+        submitBtn.disabled = true;
+        
+        try {
+            // Send email to business owner
+            await emailjs.send(
+                "service_20hi9bm", // Your EmailJS service ID
+                "template_vd34szo", // Business notification template (reuse existing)
+                {
+                    from_name: data.contactName,
+                    from_email: data.contactEmail,
+                    phone: data.contactPhone || 'Not provided',
+                    address: 'N/A',
+                    service_type: 'General Contact',
+                    description: data.contactMessage,
+                    preferred_date: 'N/A',
+                    additional_info: `Subject: ${data.contactSubject}`,
+                    to_email: "contact.zeromaintenance@gmail.com", // Your business email
+                    subject: `Contact Form: ${data.contactSubject} - ${data.contactName}`
+                }
+            );
+            
+            // Send confirmation email to customer
+            await emailjs.send(
+                "service_20hi9bm", // Your EmailJS service ID
+                "template_gssk08o", // Customer confirmation template (reuse existing)
+                {
+                    to_name: data.contactName,
+                    to_email: data.contactEmail,
+                    service_type: 'General Contact',
+                    reply_to: "contact.zeromaintenance@gmail.com" // Your business email
+                }
+            );
+            
+            showSuccessModal();
+            contactForm.reset();
+            
+        } catch (error) {
+            console.error('Contact form email sending failed:', error);
+            showNotification('There was an error sending your message. Please try again or contact us directly.', 'error');
+        } finally {
+            // Reset button state
+            submitBtn.textContent = originalText;
+            submitBtn.disabled = false;
+        }
+    });
+}
+
 // Show success modal
 function showSuccessModal() {
     if (successModal) {
@@ -440,6 +515,15 @@ document.addEventListener('DOMContentLoaded', () => {
         item.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
         contactObserver.observe(item);
     });
+    
+    // Add animation for contact form
+    const contactForm = document.querySelector('.contact-form');
+    if (contactForm) {
+        contactForm.style.opacity = '0';
+        contactForm.style.transform = 'translateY(30px)';
+        contactForm.style.transition = 'opacity 0.8s ease 0.4s, transform 0.8s ease 0.4s';
+        contactObserver.observe(contactForm);
+    }
 });
 
 // ZeroCorps Branding Popup Functionality
