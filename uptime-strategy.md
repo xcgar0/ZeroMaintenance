@@ -10,8 +10,8 @@ Achieving 100% uptime for a static website with minimal third-party dependencies
 #### 1. GitHub Pages Setup (Primary)
 ```
 Domain: zeromaintenance.com
-GitHub Repo: yourusername/zeromaintenance
-GitHub Pages URL: yourusername.github.io/zeromaintenance
+GitHub Repo: xcgar0/ZeroMaintenance
+GitHub Pages URL: xcgar0.github.io/ZeroMaintenance
 Custom Domain: zeromaintenance.com
 ```
 
