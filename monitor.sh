@@ -4,10 +4,10 @@
 
 # Configuration
 DOMAIN="zeromaintenance.com"
-GITHUB_REPO="yourusername/zeromaintenance"
-GITLAB_REPO="yourusername/zeromaintenance"
+GITHUB_REPO="xcgar0/ZeroMaintenance"
+GITLAB_REPO="xcgar0/ZeroMaintenance"  # Update this when you create GitLab repo
 LOG_FILE="uptime.log"
-ALERT_EMAIL="your-email@domain.com"  # Optional: for email alerts
+ALERT_EMAIL="contact.zeromaintenance@gmail.com"
 
 # Colors
 RED='\033[0;31m'

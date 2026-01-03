@@ -12,8 +12,8 @@ BLUE='\033[0;34m'
 NC='\033[0m' # No Color
 
 # Configuration
-GITHUB_REPO="yourusername/zeromaintenance"
-GITLAB_REPO="yourusername/zeromaintenance"
+GITHUB_REPO="xcgar0/ZeroMaintenance"
+GITLAB_REPO="xcgar0/ZeroMaintenance"  # Update this when you create GitLab repo
 DOMAIN="zeromaintenance.com"
 
 echo -e "${BLUE}🚀 ZeroMaintenance Multi-Provider Deployment${NC}"
