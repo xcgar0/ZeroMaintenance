@@ -97,8 +97,10 @@ zeromaintenence/
 ├── script.js               # JavaScript functionality (391+ lines)
 ├── README.md               # This documentation
 ├── uptime-strategy.md      # 100% uptime configuration guide
-├── deploy.sh               # Automated multi-provider deployment
-├── monitor.sh              # Uptime monitoring script
+├── deploy.sh               # Linux/Mac deployment script
+├── deploy.bat              # Windows deployment script
+├── monitor.sh              # Linux/Mac monitoring script
+├── monitor.bat             # Windows monitoring script
 └── [other files...]
 ```
 
@@ -183,8 +185,8 @@ For maximum reliability with minimal third-party dependencies, see [`uptime-stra
 1. **Deploy to GitHub Pages** (free)
 2. **Deploy to GitLab Pages** (free backup)
 3. **Configure GoDaddy DNS** with round-robin A records
-4. **Use the deployment script**: `./deploy.sh`
-5. **Monitor with**: `./monitor.sh`
+4. **Use the deployment script**: `deploy.bat` (Windows) or `./deploy.sh` (Linux/Mac)
+5. **Monitor with**: `monitor.bat` (Windows) or `./monitor.sh` (Linux/Mac)
 
 ## 🔮 Future Enhancements
 
