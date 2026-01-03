@@ -164,6 +164,13 @@
                         <label for="additionalInfo">Additional Information</label>
                         <textarea id="additionalInfo" name="additionalInfo" rows="3" placeholder="Any additional details or questions..."></textarea>
                     </div>
+                    <div class="form-group checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="termsAgree" name="termsAgree" required>
+                            <span class="checkmark"></span>
+                            I agree to the <a href="#terms" onclick="showTermsModal()">Terms of Service</a> and understand that pictures will be requested via text message for accurate quoting.
+                        </label>
+                    </div>
                     <button type="submit" class="btn btn-primary btn-block">Submit Quote Request</button>
                     <p class="form-note">* Required fields. We'll contact you via phone or text for pictures to provide an accurate quote.</p>
                 </form>
@@ -278,6 +285,13 @@
                             <label for="contactMessage">Message *</label>
                             <textarea id="contactMessage" name="contactMessage" rows="5" required placeholder="Tell us how we can help you..."></textarea>
                         </div>
+                        <div class="form-group checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="contactTermsAgree" name="contactTermsAgree" required>
+                                <span class="checkmark"></span>
+                                I agree to the <a href="#terms" onclick="showTermsModal()">Terms of Service</a>.
+                            </label>
+                        </div>
                         <button type="submit" class="btn btn-primary btn-block">Send Message</button>
                         <p class="form-note">* Required fields. We'll respond within 24 hours.</p>
                     </form>
@@ -333,6 +347,40 @@
         </div>
     </div>
 
+    <!-- Terms of Service Modal -->
+    <div id="termsModal" class="terms-modal">
+        <div class="terms-modal-content">
+            <span class="modal-close" onclick="closeTermsModal()">&times;</span>
+            <h2>Terms of Service - ZeroMaintenance</h2>
+            
+            <h3>1. Service Agreement</h3>
+            <p>By submitting a quote request or contact form, you agree to our property maintenance and junk removal services. All services are performed at your own risk, and you acknowledge that final pricing may vary based on the actual scope of work.</p>
+            
+            <h3>2. Quote Process</h3>
+            <p>Quotes are provided after reviewing submitted pictures and assessing the scope of work. Pictures are required for accurate quoting. All quotes are valid for 30 days from issuance date.</p>
+            
+            <h3>3. Payment Terms</h3>
+            <p>Payment is due upon completion of services unless otherwise agreed upon. We accept cash, credit cards, and approved electronic payments. A deposit may be required for large projects.</p>
+            
+            <h3>4. Service Areas</h3>
+            <p>We service Wise County, Denton County, and Tarrant County, Texas. Additional travel fees may apply for locations outside our primary service area.</p>
+            
+            <h3>5. Liability & Insurance</h3>
+            <p>ZeroMaintenance is fully licensed and insured. We are not responsible for pre-existing damage to property or items. Customers are advised to remove valuable items before service.</p>
+            
+            <h3>6. Cancellation Policy</h3>
+            <p>Services may be cancelled up to 24 hours before the scheduled appointment without charge. Cancellations within 24 hours may incur a service fee.</p>
+            
+            <h3>7. Environmental Responsibility</h3>
+            <p>We are committed to responsible disposal practices. Certain items may require special handling fees or may not be accepted for environmental reasons.</p>
+            
+            <h3>8. Contact & Communication</h3>
+            <p>By providing your phone number, you consent to receive text messages and calls related to your service request, including requests for pictures and service updates.</p>
+            
+            <button class="btn btn-primary" onclick="closeTermsModal()">I Understand</button>
+        </div>
+    </div>
+
     <!-- Success Modal -->
     <div id="successModal" class="modal">
         <div class="modal-content">
@@ -340,7 +388,13 @@
             <div class="modal-body">
                 <div class="success-icon">✓</div>
                 <h2>Quote Request Submitted!</h2>
-                <p>Thank you for your interest! We've received your quote request and will contact you via phone or text within 24 hours to get pictures and provide an accurate quote.</p>
+                <p>Thank you for your quote request! Our team will review your submission within the next hour and send you a text message asking for pictures of the items. Once we receive your photos, we'll provide a detailed, accurate estimate within 24 hours.</p>
+                <div class="success-note">
+                    <strong>Next Steps:</strong><br>
+                    1. Check your email for confirmation<br>
+                    2. Watch for our text message requesting pictures<br>
+                    3. Reply with photos for your personalized quote
+                </div>
                 <button class="btn btn-primary" onclick="closeModal()">Close</button>
             </div>
         </div>

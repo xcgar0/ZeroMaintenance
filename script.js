@@ -178,6 +178,12 @@ if (quoteForm) {
             return;
         }
         
+        // Terms agreement validation
+        if (!data.termsAgree) {
+            showNotification('Please agree to the Terms of Service.', 'error');
+            return;
+        }
+        
         // Email validation
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailRegex.test(data.email)) {
@@ -217,7 +223,7 @@ if (quoteForm) {
                 }
             );
             
-            // Send confirmation email to customer
+            // Send confirmation email to customer with enhanced messaging
             await emailjs.send(
                 "service_20hi9bm", // Your EmailJS service ID
                 "template_gssk08o", // Customer confirmation template
@@ -225,12 +231,16 @@ if (quoteForm) {
                     to_name: data.name,
                     to_email: data.email,
                     service_type: data.serviceType,
-                    reply_to: "contact.zeromaintenance@gmail.com" // Your business email
+                    reply_to: "contact.zeromaintenance@gmail.com", // Your business email
+                    custom_message: `Thank you for your quote request! Our team will review your submission within the next hour and follow up via text message to ${data.phone} for pictures to provide an accurate estimate.`
                 }
             );
             
             showSuccessModal();
             quoteForm.reset();
+            
+            // TODO: Integrate SMS service (Twilio, etc.) to send automated text:
+            // "Hi ${data.name}, thanks for your quote request! Could you please send pictures of the items to remove to this number? We'll provide an accurate estimate within 24 hours."
             
         } catch (error) {
             console.error('Email sending failed:', error);
@@ -257,6 +267,12 @@ if (contactForm) {
         // Basic validation
         if (!data.contactName || !data.contactEmail || !data.contactSubject || !data.contactMessage) {
             showNotification('Please fill in all required fields.', 'error');
+            return;
+        }
+        
+        // Terms agreement validation
+        if (!data.contactTermsAgree) {
+            showNotification('Please agree to the Terms of Service.', 'error');
             return;
         }
         
@@ -314,6 +330,32 @@ if (contactForm) {
             // Reset button state
             submitBtn.textContent = originalText;
             submitBtn.disabled = false;
+        }
+    });
+}
+
+// Terms Modal Functions
+function showTermsModal() {
+    const termsModal = document.getElementById('termsModal');
+    if (termsModal) {
+        termsModal.style.display = 'block';
+        document.body.style.overflow = 'hidden';
+    }
+}
+
+function closeTermsModal() {
+    const termsModal = document.getElementById('termsModal');
+    if (termsModal) {
+        termsModal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    }
+}
+
+// Close terms modal when clicking outside
+if (document.getElementById('termsModal')) {
+    document.getElementById('termsModal').addEventListener('click', (e) => {
+        if (e.target === document.getElementById('termsModal')) {
+            closeTermsModal();
         }
     });
 }
