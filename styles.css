@@ -895,6 +895,132 @@ html {
     padding-top: 2rem;
     border-top: 1px solid var(--border-dark);
     color: var(--text-gray);
+    position: relative;
+}
+
+.powered-by {
+    position: absolute;
+    bottom: 2rem;
+    right: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    color: var(--text-gray);
+}
+
+.zerocorps-logo {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    border-radius: 4px;
+    background: var(--bg-dark);
+    padding: 2px;
+}
+
+.powered-by span {
+    font-weight: 500;
+    color: var(--green-accent);
+}
+
+/* Mobile responsive adjustments for ZeroCorps branding */
+@media (max-width: 768px) {
+    .powered-by {
+        position: static;
+        margin-top: 1rem;
+        justify-content: center;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .powered-by {
+        flex-direction: column;
+        gap: 0.25rem;
+        font-size: 0.8rem;
+    }
+    
+    .zerocorps-logo {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+/* ZeroCorps Branding Popup */
+.zerocorps-popup {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    animation: slideInRight 0.5s ease-out;
+    display: none;
+}
+
+.zerocorps-popup-content {
+    padding: 0;
+}
+
+.zerocorps-popup-body {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 16px;
+    min-width: 200px;
+}
+
+.zerocorps-popup-logo {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    border-radius: 4px;
+    flex-shrink: 0;
+}
+
+.zerocorps-popup-text {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-primary, #1a1a1a);
+    white-space: nowrap;
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Mobile responsive for ZeroCorps popup */
+@media (max-width: 768px) {
+    .zerocorps-popup {
+        top: 10px;
+        right: 10px;
+        left: 10px;
+        width: auto;
+    }
+    
+    .zerocorps-popup-body {
+        padding: 10px 12px;
+        min-width: auto;
+    }
+    
+    .zerocorps-popup-logo {
+        width: 20px;
+        height: 20px;
+    }
+    
+    .zerocorps-popup-text {
+        font-size: 13px;
+    }
 }
 
 /* Modal */

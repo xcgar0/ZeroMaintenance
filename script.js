@@ -441,3 +441,29 @@ document.addEventListener('DOMContentLoaded', () => {
         contactObserver.observe(item);
     });
 });
+
+// ZeroCorps Branding Popup Functionality
+document.addEventListener('DOMContentLoaded', () => {
+    const zerocorpsPopup = document.getElementById('zerocorps-popup');
+    
+    // Show popup after 2 seconds
+    setTimeout(() => {
+        if (zerocorpsPopup) {
+            zerocorpsPopup.style.display = 'block';
+        }
+    }, 2000);
+    
+    // Hide popup when clicked
+    if (zerocorpsPopup) {
+        zerocorpsPopup.addEventListener('click', () => {
+            zerocorpsPopup.style.display = 'none';
+        });
+    }
+    
+    // Auto-hide after 8 seconds if not clicked
+    setTimeout(() => {
+        if (zerocorpsPopup && zerocorpsPopup.style.display !== 'none') {
+            zerocorpsPopup.style.display = 'none';
+        }
+    }, 10000);
+});
