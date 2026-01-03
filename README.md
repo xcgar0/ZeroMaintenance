@@ -31,16 +31,13 @@ A premium, fully-responsive website for ZeroMaintenance - a professional propert
 
 ### 1. Email Integration (Required for Quote Forms)
 
-The website uses EmailJS for automated email notifications. Follow these steps:
+**📖 Complete Guide:** See [`emailjs-setup.md`](emailjs-setup.md) for detailed step-by-step instructions.
 
-1. **Sign up for EmailJS**:
-   - Go to [emailjs.com](https://www.emailjs.com/)
-   - Create a free account
-
-2. **Set up Email Service**:
-   - Go to Email Services → Add New Service
-   - Choose Gmail (or your preferred email provider)
-   - Connect your email account
+**Quick Setup:** Get your EmailJS keys and update `script.js`:
+- Public Key → Replace `YOUR_PUBLIC_KEY`
+- Service ID → Replace `YOUR_SERVICE_ID`  
+- Template IDs → Replace `YOUR_TEMPLATE_ID`
+- Your Email → Replace `your-email@domain.com`
 
 3. **Create Email Templates**:
    - Go to Email Templates → Create New Template
@@ -97,6 +94,7 @@ zeromaintenence/
 ├── script.js               # JavaScript functionality (391+ lines)
 ├── README.md               # This documentation
 ├── uptime-strategy.md      # 100% uptime configuration guide
+├── emailjs-setup.md        # EmailJS configuration guide
 ├── deploy.sh               # Linux/Mac deployment script
 ├── deploy.bat              # Windows deployment script
 ├── monitor.sh              # Linux/Mac monitoring script
